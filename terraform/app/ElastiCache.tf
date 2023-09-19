@@ -22,13 +22,6 @@ resource "aws_elasticache_replication_group" "tf-redis-cluster" {
   num_node_groups = var.nodegroup
   replicas_per_node_group = var.replicapernode
 
-  /*tags = {
-    Owner          = "Data Services"
-    Service        = "Elastic Cluster Test" 
-    Name           = "Test"
-    Classification = "Internal"
-  }*/
-
    tags = merge(
     {
       Name = "tf-redis-cluster-${var.env}-${var.available_regions[count.index]}"
